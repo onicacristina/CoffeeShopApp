@@ -4,4 +4,9 @@
     <string name="title_favorites">Favorites</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
+
+    <!-- Get started -->
+    <string name="get_started_title">Welcome to Grand Caffe</string>
+    <string name="get_started_subtitle">Order your coffee from the best in town</string>
+    <string name="get_started">Get started</string>
 </resources>
