@@ -1,4 +1,4 @@
-package com.example.coffeeshopapp.ui.home
+package com.example.coffeeshopapp.presentation.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
