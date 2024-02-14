@@ -25,7 +25,7 @@
     <string name="or">Or</string>
     <string name="do_not_have_an_account">Don\'t have an account? Sign up</string>
     <string name="sign_up">Sign up</string>
-    <string name="create_new_account">Create new account</string>
+    <string name="create_new_account">Create New \nAccount</string>
     <string name="name">Name</string>
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="sign_up_with_google">Sign up with Google</string>
