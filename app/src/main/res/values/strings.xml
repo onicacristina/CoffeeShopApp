@@ -9,4 +9,41 @@
     <string name="get_started_title">Welcome to Grand Caffe</string>
     <string name="get_started_subtitle">Order your coffee from the best in town</string>
     <string name="get_started">Get started</string>
+
+    <!-- Authentication -->
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="sign_in_with_apple">Sign in with Apple</string>
+    <string name="or">Or</string>
+    <string name="do_not_have_an_account">Don\'t have an account? Sign up</string>
+    <string name="sign_up">Sign up</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="name">Name</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="sign_up_with_google">Sign up with Google</string>
+    <string name="sign_up_with_facebook">Sign up with Facebook</string>
+    <string name="sign_up_with_apple">Sign up with Apple</string>
+    <string name="already_have_an_account">Already have an account? Sign in</string>
+
+    <!-- Forgot password -->
+    <string name="forgot_password_title">Forgot password</string>
+    <string name="forgot_password_description">Please enter your email address to receive a verification code.</string>
+    <string name="continue_button">Continue</string>
+
+    <!-- Create new password-->
+    <string name="create_new_password">Create new password</string>
+    <string name="create_new_password_description">Your new password must be different from previously used password.</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="save">Save</string>
+
 </resources>
