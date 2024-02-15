@@ -20,10 +20,11 @@
 
     <ImageView
         android:id="@+id/ivBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_left_arrow"
-        android:layout_marginStart="4dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/left_arrow"
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

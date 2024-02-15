@@ -1,13 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.authentication.register.RegisterFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ScrollView
+        android:id="@+id/svContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_new_account"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/tvName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="4dp"
+                android:paddingVertical="4dp"
+                android:text="@string/name"
+                android:textColor="@color/text_gray_dark"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_input"
+                android:hint="@string/enter_your_full_name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="9dp"
+                android:textColorHint="@color/gray_light_3"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/tvEmail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp"
+                android:paddingVertical="4dp"
+                android:text="@string/email"
+                android:textColor="@color/text_gray_dark"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/etEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etName" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_input"
+                android:hint="@string/enter_your_email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="9dp"
+                android:textColorHint="@color/gray_light_3"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/tvPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp"
+                android:paddingVertical="4dp"
+                android:text="@string/password"
+                android:textColor="@color/text_gray_dark"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/etPassword"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_input"
+                android:hint="@string/enter_your_password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="9dp"
+                android:textColorHint="@color/gray_light_3"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/cbTermsAndConditions"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+            <CheckBox
+                android:id="@+id/cbTermsAndConditions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@drawable/checkbox_filter_tint"
+                android:text="@string/remember_me"
+                android:textColor="@color/gray_dark_1"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/btnSignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/selector_orange_button"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_orange_button_text"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/viewOrConnectWith"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbTermsAndConditions" />
+
+            <include
+                android:id="@+id/viewOrConnectWith"
+                layout="@layout/layout_text_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toTopOf="@id/btnGoogle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_rounded_white"
+                android:clickable="true"
+                android:elevation="2dp"
+                android:focusable="true"
+                app:layout_constraintBottom_toTopOf="@id/btnFacebook"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewOrConnectWith">
+
+                <TextView
+                    android:id="@+id/tvGoogle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="@string/sign_up_with_google"
+                    android:textColor="@color/gray_dark_1"
+                    android:textSize="14sp"
+                    app:drawableLeftCompat="@drawable/ic_google"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_rounded_white"
+                android:clickable="true"
+                android:elevation="2dp"
+                android:focusable="true"
+                app:layout_constraintBottom_toTopOf="@id/tvAlreadyHaveAccount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnGoogle">
+
+                <TextView
+                    android:id="@+id/tvFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="@string/sign_in_with_facebook"
+                    android:textColor="@color/gray_dark_1"
+                    android:textSize="14sp"
+                    app:drawableLeftCompat="@drawable/ic_facebook"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvAlreadyHaveAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="18dp"
+                android:gravity="center"
+                android:paddingVertical="4dp"
+                android:text="@string/already_have_an_account"
+                android:textColor="@color/text_gray_dark"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnFacebook" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
