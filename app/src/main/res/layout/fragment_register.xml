@@ -158,7 +158,7 @@
                 android:background="@drawable/selector_orange_button"
                 android:backgroundTint="@null"
                 android:gravity="center"
-                android:text="@string/sign_in"
+                android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:textColor="@drawable/selector_orange_button_text"
                 android:textSize="14sp"
@@ -219,7 +219,7 @@
                 android:clickable="true"
                 android:elevation="2dp"
                 android:focusable="true"
-                app:layout_constraintBottom_toTopOf="@id/tvDoNotHaveAccount"
+                app:layout_constraintBottom_toTopOf="@id/tvAlreadyHaveAccount"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnGoogle">
@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="8dp"
                     android:gravity="center"
-                    android:text="@string/sign_up_with_google"
+                    android:text="@string/sign_in_with_facebook"
                     android:textColor="@color/gray_dark_1"
                     android:textSize="14sp"
                     app:drawableLeftCompat="@drawable/ic_facebook"
@@ -241,7 +241,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/tvDoNotHaveAccount"
+                android:id="@+id/tvAlreadyHaveAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"

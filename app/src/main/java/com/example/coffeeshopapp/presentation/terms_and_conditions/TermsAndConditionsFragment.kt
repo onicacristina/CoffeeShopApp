@@ -1,18 +1,19 @@
-package com.example.coffeeshopapp.presentation.authentication.create_new_password
+package com.example.coffeeshopapp.presentation.terms_and_conditions
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.coffeeshopapp.R
-import com.example.coffeeshopapp.databinding.FragmentCreateNewPasswordBinding
+import com.example.coffeeshopapp.databinding.FragmentTermsAndConditionsBinding
+import com.example.coffeeshopapp.presentation.authentication.create_new_password.CreateNewPasswordViewModel
 import com.example.coffeeshopapp.presentation.base.NoBottomNavigationFragment
 import com.example.coffeeshopapp.presentation.utils.extensions.viewBinding
 
-class CreateNewPasswordFragment :
-    NoBottomNavigationFragment<FragmentCreateNewPasswordBinding>(R.layout.fragment_create_new_password) {
+class TermsAndConditionsFragment :
+    NoBottomNavigationFragment<FragmentTermsAndConditionsBinding>(R.layout.fragment_terms_and_conditions) {
 
-    override val viewBinding: FragmentCreateNewPasswordBinding by viewBinding(
-        FragmentCreateNewPasswordBinding::bind
+    override val viewBinding: FragmentTermsAndConditionsBinding by viewBinding(
+        FragmentTermsAndConditionsBinding::bind
     )
     override val viewModel: CreateNewPasswordViewModel by viewModels()
 
@@ -23,7 +24,7 @@ class CreateNewPasswordFragment :
     }
 
     private fun initViews() {
-        viewBinding.toolbar.tvTitle.text = getString(R.string.create_new_password)
+        viewBinding.toolbar.tvTitle.text = getString(R.string.terms_and_conditions)
     }
 
     private fun initListeners() {
