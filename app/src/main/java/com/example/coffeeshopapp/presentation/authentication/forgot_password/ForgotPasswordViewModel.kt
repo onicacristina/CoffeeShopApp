@@ -1,11 +1,14 @@
 package com.example.coffeeshopapp.presentation.authentication.forgot_password
 
 import com.example.coffeeshopapp.presentation.base.BaseViewModel
+import com.example.coffeeshopapp.presentation.utils.DefaultEventDelegate
 import com.example.coffeeshopapp.presentation.utils.DefaultStateDelegate
+import com.example.coffeeshopapp.presentation.utils.EventDelegate
 import com.example.coffeeshopapp.presentation.utils.StateDelegate
 
 class ForgotPasswordViewModel : BaseViewModel(),
-    StateDelegate<ForgotPasswordViewModel.State> by DefaultStateDelegate(State.default) {
+    StateDelegate<ForgotPasswordViewModel.State> by DefaultStateDelegate(State.default),
+    EventDelegate<ForgotPasswordViewModel.Event> by DefaultEventDelegate() {
 
     fun generateNewPassword() {
 
@@ -35,5 +38,9 @@ class ForgotPasswordViewModel : BaseViewModel(),
                     isButtonEnabled = false
                 )
         }
+    }
+
+    enum class Event {
+        SUCCESS
     }
 }

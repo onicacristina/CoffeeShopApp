@@ -53,5 +53,9 @@
     <string name="something_went_wrong">Something went wrong</string>
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="invalid_email_address">You entered an invalid email address!</string>
+    <string name="password_length_rule">The password must be at least 8 characters long!</string>
+    <string name="password_rules">The password must contain at least one uppercase letter and one digit.</string>
+    <string name="passwords_do_not_match">The passwords do not match</string>
 
 </resources>
