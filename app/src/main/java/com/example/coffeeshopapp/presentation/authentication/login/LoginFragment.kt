@@ -1,21 +1,24 @@
 package com.example.coffeeshopapp.presentation.authentication.login
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.SpannableString
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageButton
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.coffeeshopapp.R
-import com.example.coffeeshopapp.databinding.FragmentHomeBinding
 import com.example.coffeeshopapp.databinding.FragmentLoginBinding
-import com.example.coffeeshopapp.presentation.base.BaseViewBindingFragment
 import com.example.coffeeshopapp.presentation.base.NoBottomNavigationFragment
-import com.example.coffeeshopapp.presentation.home.HomeViewModel
 import com.example.coffeeshopapp.presentation.utils.extensions.addClickableLink
+import com.example.coffeeshopapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.coffeeshopapp.presentation.utils.extensions.viewBinding
+import kotlinx.coroutines.launch
 
 class LoginFragment :
     NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.fragment_login) {
@@ -27,6 +30,7 @@ class LoginFragment :
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initListeners()
+        initObservers()
     }
 
     private fun initViews() {
@@ -54,6 +58,66 @@ class LoginFragment :
     }
 
     private fun initListeners() {
+        viewBinding.etEmail.doAfterTextChanged {
+            viewModel.onEmailChanged(it.toString())
+        }
+        viewBinding.etPassword.doAfterTextChanged {
+            viewModel.onPasswordChanged(it.toString())
+        }
+        viewBinding.cbRememberMe.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.onRememberMeCheckedChanged(isChecked)
+        }
+        viewBinding.btnSignIn.setOnDebounceClickListener {
+            viewModel.loginUser()
+        }
+        initTogglePasswordMask(false)
+    }
 
+    private fun initObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                launch {
+                    viewModel.state.collect { value ->
+                        render(value)
+                    }
+                }
+                launch {
+                    viewModel.event.collect { value ->
+                        onEvent(value)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun onEvent(event: LoginViewModel.Event) {
+
+    }
+
+    private fun render(state: LoginViewModel.State) {
+        initTogglePasswordMask(state.isPasswordVisible)
+        updateLoginButton(state.isEnabledLoginButton)
+    }
+
+    private fun initTogglePasswordMask(isPasswordVisible: Boolean) {
+        viewBinding.btnTogglePasswordMask.setOnClickListener {
+            togglePasswordMask(
+                viewBinding.etPassword,
+                viewBinding.btnTogglePasswordMask,
+                !isPasswordVisible
+            )
+        }
+    }
+
+    private fun togglePasswordMask(editText: EditText, imageButton: ImageButton, show: Boolean) {
+        editText.transformationMethod =
+            if (show) HideReturnsTransformationMethod.getInstance() else PasswordTransformationMethod.getInstance()
+        imageButton.setImageResource(if (show) R.drawable.ic_eye_open else R.drawable.ic_eye_closed)
+        viewModel.onPasswordToggleChanged(show)
+        editText.setSelection(editText.length())
+    }
+
+    private fun updateLoginButton(isEnabled: Boolean) {
+        viewBinding.btnSignIn.isEnabled = isEnabled
     }
 }

@@ -17,5 +17,6 @@
     <color name="text_gray_dark">#191919</color>
     <color name="green">#1BDA2E</color>
     <color name="red">#FF5348</color>
+    <color name="transparent">@android:color/transparent</color>
 
 </resources>
