@@ -1,25 +1,35 @@
 package com.example.coffeeshopapp.presentation.authentication.create_new_password
 
+import androidx.lifecycle.viewModelScope
 import com.example.coffeeshopapp.presentation.base.BaseViewModel
 import com.example.coffeeshopapp.presentation.utils.DefaultEventDelegate
 import com.example.coffeeshopapp.presentation.utils.DefaultStateDelegate
 import com.example.coffeeshopapp.presentation.utils.EventDelegate
 import com.example.coffeeshopapp.presentation.utils.StateDelegate
+import kotlinx.coroutines.launch
 
 class CreateNewPasswordViewModel : BaseViewModel(),
     StateDelegate<CreateNewPasswordViewModel.State> by DefaultStateDelegate(State.default),
     EventDelegate<CreateNewPasswordViewModel.Event> by DefaultEventDelegate() {
 
-        fun changePassword() {
+    fun changePassword() {
+        viewModelScope.launch {
+            val newPassword = currentState.newPassword
+            val confirmNewPassword = currentState.confirmNewPassword
 
+            if (!isCompletedCorrect(newPassword, confirmNewPassword)){
+                return@launch
+            }
         }
+
+    }
+
     private fun isCompletedCorrect(
-        currentPassword: String,
         newPassword: String,
         confirmNewPassword: String
     ): Boolean {
         return when {
-            currentPassword.length < 8 || newPassword.length < 8 || confirmNewPassword.length < 8 -> {
+            newPassword.length < 8 || confirmNewPassword.length < 8 -> {
                 sendEvent(Event.SHORT_PASSWORD)
                 false
             }
