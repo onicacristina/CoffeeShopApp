@@ -1,7 +1,39 @@
 package com.example.coffeeshopapp.presentation.authentication.forgot_password
 
-import androidx.lifecycle.ViewModel
+import com.example.coffeeshopapp.presentation.base.BaseViewModel
+import com.example.coffeeshopapp.presentation.utils.DefaultStateDelegate
+import com.example.coffeeshopapp.presentation.utils.StateDelegate
 
-class ForgotPasswordViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class ForgotPasswordViewModel : BaseViewModel(),
+    StateDelegate<ForgotPasswordViewModel.State> by DefaultStateDelegate(State.default) {
+
+    fun generateNewPassword() {
+
+    }
+
+    private fun isNotEmptyEmail(): Boolean {
+        return currentState.email.isNotEmpty()
+    }
+
+    fun onEmailChanged(email: String) {
+        currentState = currentState.copy(email = email)
+        validateButton()
+    }
+
+    private fun validateButton() {
+        currentState = currentState.copy(isButtonEnabled = isNotEmptyEmail())
+    }
+
+    data class State(
+        val email: String,
+        val isButtonEnabled: Boolean
+    ) {
+        companion object {
+            val default: State
+                get() = State(
+                    email = "",
+                    isButtonEnabled = false
+                )
+        }
+    }
 }

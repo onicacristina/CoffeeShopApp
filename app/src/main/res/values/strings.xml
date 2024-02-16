@@ -39,6 +39,8 @@
     <string name="forgot_password_title">Forgot password</string>
     <string name="forgot_password_description">Please enter your email address to receive a verification code.</string>
     <string name="continue_button">Continue</string>
+    <string name="email_sent">An email was sent to you, Please check your email inbox.</string>
+    <string name="email_was_sent">Email was sent</string>
 
     <!-- Create new password-->
     <string name="create_new_password">Create new password</string>
