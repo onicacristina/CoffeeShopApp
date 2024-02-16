@@ -18,6 +18,7 @@ import com.example.coffeeshopapp.presentation.base.NoBottomNavigationFragment
 import com.example.coffeeshopapp.presentation.utils.extensions.addClickableLink
 import com.example.coffeeshopapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.coffeeshopapp.presentation.utils.extensions.viewBinding
+import com.example.coffeeshopapp.presentation.utils.showDialog
 import kotlinx.coroutines.launch
 
 class RegisterFragment :
@@ -98,7 +99,25 @@ class RegisterFragment :
     }
 
     private fun onEvent(event: RegisterViewModel.Event) {
+        when (event) {
+            RegisterViewModel.Event.SUCCESS -> {
 
+            }
+
+            RegisterViewModel.Event.SHORT_PASSWORD -> {
+                showInfoOrErrorDialog(
+                    title = getString(R.string.something_went_wrong),
+                    description = getString(R.string.password_length_rule)
+                )
+            }
+
+            RegisterViewModel.Event.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> {
+                showInfoOrErrorDialog(
+                    title = getString(R.string.something_went_wrong),
+                    description = getString(R.string.password_rules)
+                )
+            }
+        }
     }
 
     private fun render(state: RegisterViewModel.State) {
@@ -126,5 +145,19 @@ class RegisterFragment :
 
     private fun updateRegisterButton(isEnabled: Boolean) {
         viewBinding.btnSignUp.isEnabled = isEnabled
+    }
+
+    private fun showInfoOrErrorDialog(title: String, description: String) {
+        showDialog(
+            context = requireContext(),
+            title = title,
+            description = description,
+            positiveActionText = getString(R.string.btn_ok),
+            negativeActionText = getString(R.string.btn_cancel),
+            negativeAction = {},
+            positiveAction = {},
+            isCancellable = true,
+            positiveActionButtonColor = R.drawable.round_button
+        )
     }
 }

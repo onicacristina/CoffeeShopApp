@@ -86,6 +86,7 @@ class RegisterViewModel : BaseViewModel(),
 
     fun onTermsCheckedChanged(data: Boolean) {
         currentState = currentState.copy(isTermsChecked = data)
+        validateFieldsNotEmpty()
     }
 
     fun onPasswordToggleChanged(data: Boolean) {
