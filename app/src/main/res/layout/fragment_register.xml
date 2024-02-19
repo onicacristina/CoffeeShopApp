@@ -137,6 +137,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
 
+            <ImageButton
+                android:id="@+id/btnTogglePasswordMask"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/button_ripple_oval_mask"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_eye_closed"
+                app:layout_constraintBottom_toBottomOf="@id/etPassword"
+                app:layout_constraintEnd_toEndOf="@id/etPassword"
+                app:layout_constraintTop_toTopOf="@id/etPassword"
+                tools:ignore="SpeakableTextPresentCheck" />
+
             <CheckBox
                 android:id="@+id/cbTermsAndConditions"
                 android:layout_width="0dp"

@@ -58,7 +58,7 @@
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:autofillHints="First Name"
                 android:background="@drawable/bg_custom_input"
                 android:hint="@string/enter_your_email"
@@ -90,7 +90,7 @@
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:autofillHints="First Name"
                 android:background="@drawable/bg_custom_input"
                 android:hint="@string/enter_your_password"
@@ -104,6 +104,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+            <ImageButton
+                android:id="@+id/btnTogglePasswordMask"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/button_ripple_oval_mask"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_eye_closed"
+                app:layout_constraintBottom_toBottomOf="@id/etPassword"
+                app:layout_constraintEnd_toEndOf="@id/etPassword"
+                app:layout_constraintTop_toTopOf="@id/etPassword"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <CheckBox
                 android:id="@+id/cbRememberMe"
@@ -135,7 +150,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSignIn"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/selector_orange_button"
                 android:backgroundTint="@null"
@@ -163,7 +178,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnGoogle"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/button_rounded_white"
@@ -194,7 +209,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnFacebook"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/button_rounded_white"
