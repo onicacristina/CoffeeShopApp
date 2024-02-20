@@ -152,12 +152,12 @@ class RegisterFragment :
             context = requireContext(),
             title = title,
             description = description,
+            positiveActionButtonColor = R.drawable.round_button,
             positiveActionText = getString(R.string.btn_ok),
             negativeActionText = getString(R.string.btn_cancel),
             negativeAction = {},
             positiveAction = {},
             isCancellable = true,
-            positiveActionButtonColor = R.drawable.round_button
         )
     }
 }
